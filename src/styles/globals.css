@@ -1,0 +1,41 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-sans);
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  background-color: var(--white);
+  color: var(--font-color-primary);
+}
+
+h1 {
+  font-size: var(--font-size-display);
+  line-height: var(--font-lineheight-display);
+}
+
+h2, h3, h4 {
+  line-height: var(--font-lineheight-headings);
+  color: var(--font-color-primary);
+}
+
+h2 {
+  font-size: var(--font-size-title);
+}
+
+h3 {
+  font-size: var(--font-size-heading);
+}
+
+h4 {
+  font-size: var(--font-size-subheading);
+}
+
+p {
+  font-size: var(--font-size-body);
+  line-height: var(--font-lineheight-body);
+  color: var(--font-color-secondary);
+}
