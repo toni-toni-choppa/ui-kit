@@ -1,5 +1,5 @@
 {
-  "name": "ui-kit",
+  "name": "@toni-toni-choppa/ui-kit",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -26,5 +26,21 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"
-  }
+  },
+  "main": "./dist/ui-kit.cjs.js",
+  "module": "./dist/ui-kit.es.js",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "exports": {
+  ".": {
+    "import": "./dist/ui-kit.es.js",
+    "require": "./dist/ui-kit.cjs.js"
+  },
+  "./styles.css": "./dist/ui-kit.css"
+}
 }
