@@ -1,0 +1,47 @@
+.article {
+    width: 100%;
+    padding: var(--spacing-4);
+}
+
+.article h2 {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-2);
+    padding-bottom: var(--spacing-0);
+}
+
+.article-divider {
+    border: none;
+    border-top: 1px solid var(--gray-300);
+    margin: var(--spacing-4) 0;
+}
+
+.article-header p.metadata {
+    margin-top: var(--spacing-1);
+    padding: var(--spacing-2);
+}
+
+.article-section {
+    padding: var(--spacing-2);
+}
+
+.article-section p {
+    width: 75ch;
+    margin-bottom: var(--spacing-3);
+}
+
+.article-section h3,
+.article-section h4 {
+    margin-bottom: var(--spacing-3);
+}
+
+.article-section h3 {
+    margin-top: var(--spacing-3);
+}
+
+@media (min-width: 768px) {
+    .article {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}

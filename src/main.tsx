@@ -4,8 +4,6 @@ import App from './App.tsx'
 import './styles/tokens.css'
 import './styles/globals.css'
 
-import './styles/module.article.css'
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
