@@ -15,11 +15,13 @@ html, body {
 h1 {
   font-size: var(--font-size-display);
   line-height: var(--font-lineheight-display);
+  font-weight: var(--font-weight-bold);
 }
 
 h2, h3, h4 {
   line-height: var(--font-lineheight-headings);
   color: var(--font-color-primary);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 h2 {
@@ -37,5 +39,16 @@ h4 {
 p {
   font-size: var(--font-size-body);
   line-height: var(--font-lineheight-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--font-color-secondary);
+}
+
+strong {
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--font-color-primary);
+}
+
+small {
+  font-size: var(--font-size-small);
   color: var(--font-color-secondary);
 }
