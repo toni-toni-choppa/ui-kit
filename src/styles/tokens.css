@@ -64,6 +64,12 @@
     --border-radius-none: none;
     --border-radius-1: 4px;
     --border-radius-2: 8px;
+
+
+    /* Button Colors */
+    --button-color-primary: var(--gray-900);
+    --button-color-secondary: var(--gray-300);
+    --button-color-transparent: transparent;
 }
 
 @supports (font-variation-settings: normal) {
