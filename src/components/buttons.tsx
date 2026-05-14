@@ -1,4 +1,4 @@
-import './module.buttons.css'
+import button from './button.module.css'
 
 type ButtonProps = {
   label: string;
@@ -11,7 +11,7 @@ type ButtonProps = {
 export default function Button({ label, onClick, variant = 'primary', size = 'medium', disabled = false }: ButtonProps) {
   return (
     <button
-      className={`button ${variant} ${size}`}
+      className={`${button.button} ${button[variant]} ${button[size]}`}
       onClick={onClick}
       disabled={disabled}
     >

@@ -9,32 +9,32 @@
     padding-bottom: var(--spacing-0);
 }
 
-.article-divider {
+.divider {
     border: none;
     border-top: 1px solid var(--gray-300);
     margin: var(--spacing-4) 0;
 }
 
-.article-header p.metadata {
+.header p {
     margin-top: var(--spacing-1);
     padding: var(--spacing-2);
 }
 
-.article-section {
+.section {
     padding: var(--spacing-2);
 }
 
-.article-section p {
+.section p {
     width: 75ch;
     margin-bottom: var(--spacing-3);
 }
 
-.article-section h3,
-.article-section h4 {
+.section h3,
+.section h4 {
     margin-bottom: var(--spacing-3);
 }
 
-.article-section h3 {
+.section h3 {
     margin-top: var(--spacing-3);
 }
 

@@ -1,8 +1,8 @@
-import './module.article.css'
+import article from './article.module.css'
 
 function ArticleWrapper({ children }: { children: React.ReactNode }) {
     return (
-        <article className="article">
+        <article className={article.article}>
             {children}
         </article>
     )
@@ -10,7 +10,7 @@ function ArticleWrapper({ children }: { children: React.ReactNode }) {
 
 function Header({ children }: { children: React.ReactNode }) {
     return (
-        <header className="article-header">
+        <header className={article.header}>
             {children}
         </header>
     )
@@ -18,7 +18,7 @@ function Header({ children }: { children: React.ReactNode }) {
 
 function Section({ children }: { children: React.ReactNode }) {
     return (
-        <section className="article-section">
+        <section className={article.section}>
             {children}
         </section>
     )
@@ -26,7 +26,7 @@ function Section({ children }: { children: React.ReactNode }) {
 
 function Divider() {
     return (
-        <hr className="article-divider"></hr>
+        <hr className={article.divider}></hr>
     )
 }
 
