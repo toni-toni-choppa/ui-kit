@@ -1,8 +1,10 @@
 /* Alone for now, but used for universal input styles in the future */
-.textInput {
+.textInput,
+.select {
     font-family: var(--font-family-sans);
 }
 
+/* Text Input styles */
 .textInput {
     appearance: none;
 
@@ -20,6 +22,28 @@
 }
 
 .textInput:disabled {
+    background-color: var(--gray-100);
+    border-color: var(--gray-200);
+    color: var(--gray-500);
+    cursor: not-allowed;
+}
+
+/* Select styles */
+.select {
+    padding: var(--spacing-2);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-1);
+}
+
+.select:focus {
+    outline: none;
+    border: 1px solid var(--gray-900);
+}
+
+.select:disabled {
     background-color: var(--gray-100);
     border-color: var(--gray-200);
     color: var(--gray-500);

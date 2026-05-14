@@ -1,7 +1,9 @@
 import Text from "./text";
+import Select from "./select";
 
 const Input = {
-    Text
+    Text,
+    Select
 }
 
 export default Input;
