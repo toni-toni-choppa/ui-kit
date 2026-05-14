@@ -73,3 +73,59 @@
     color: var(--gray-500);
     cursor: not-allowed;
 }
+
+/* Checkbox styles */
+.checkboxWrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox:checked {
+    background-color: var(--gray-900);
+    border-color: var(--gray-900);
+}
+
+.checkbox:disabled {
+    background-color: var(--gray-100);
+    border-color: var(--gray-200);
+    cursor: not-allowed;
+}
+
+/* Radio Button styles */
+.radioWrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.radio {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio:checked {
+    background-color: var(--gray-900);
+    border-color: var(--gray-900);
+}
+
+.radio:disabled {
+    background-color: var(--gray-100);
+    border-color: var(--gray-200);
+    cursor: not-allowed;
+}

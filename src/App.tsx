@@ -1,41 +1,64 @@
 import Article from "./components/article"
-import Button from "./components/buttons"
+import Input from "./components/inputs/inputs"
 
 function App() {
   return (
     <>
       <Article.Article>
         <Article.Header>
-          <h2>Buttons</h2>
+          <h2>Inputs</h2>
 
           <p className="metadata">
-            <span>Stuff you click and it does other stuff</span>
+            <span>Stuff to input and interact with</span>
           </p>
         </Article.Header>
 
         <Article.Divider />
 
         <Article.Section>
-          <h3>Variants</h3>
-          <Button label="Primary Button" onClick={() => {}} variant="primary" />
-          <Button label="Secondary Button" onClick={() => {}} variant="secondary" />
-          <Button label="Transparent Button" onClick={() => {}} variant="transparent" />
+          <h3>Text</h3>
+          <Input.Text id="text-input" placeholder="Enter some text" onChange={(value) => console.log(value)} />
+          <Input.Text id="text-input-disabled" placeholder="Disabled input" disabled onChange={(value) => console.log(value)} />
+        </Article.Section>
+
+        <Article.Divider />
+
+        <Article.Section>
+          <h3>Select</h3>
+          <Input.Select onChange={(value) => console.log(value)}>
+            <Input.Select.Option value="option1" label="Option 1" />
+            <Input.Select.Option value="option2" label="Option 2" />
+            <Input.Select.Option value="option3" label="Option 3" />
+          </Input.Select>
+
+          <Input.Select disabled onChange={(value) => console.log(value)}>
+            <Input.Select.Option value="option1" label="Disabled" />
+          </Input.Select>
+        </Article.Section>
+
+        <Article.Divider />
+
+        <Article.Section>
+          <h3>Text Area</h3>
+          <Input.TextArea id="text-area" placeholder="Enter some text" onChange={(value) => console.log(value)} />
+          <Input.TextArea id="text-area-disabled" placeholder="Disabled input" disabled onChange={(value) => console.log(value)} />
         </Article.Section>
 
         <Article.Divider />
         
         <Article.Section>
-          <h3>Sizes</h3>
-          <Button label="Small Button" onClick={() => {}} size="small" />
-          <Button label="Medium Button" onClick={() => {}} size="medium" />
-          <Button label="Large Button" onClick={() => {}} size="large" />
+          <h3>Checkbox</h3>
+          <Input.Checkbox id="checkbox" label="Check me" onChange={(checked) => console.log(checked)} />
+          <Input.Checkbox id="checkbox-disabled" label="Disabled checkbox" disabled onChange={(checked) => console.log(checked)} />
         </Article.Section>
 
         <Article.Divider />
 
         <Article.Section>
-          <h3>Disabled State</h3>
-          <Button label="Disabled Button" onClick={() => {}} disabled />
+          <h3>Radio</h3>
+          <Input.Radio id="radio1" name="radio-group" label="Option 1" onChange={(checked) => console.log(checked)} />
+          <Input.Radio id="radio2" name="radio-group" label="Option 2" onChange={(checked) => console.log(checked)} />
+          <Input.Radio id="radio-disabled" name="radio-group-disabled" label="Disabled radio" disabled onChange={(checked) => console.log(checked)} />
         </Article.Section>
       </Article.Article>
     </>
