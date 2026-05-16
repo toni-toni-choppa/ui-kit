@@ -9,16 +9,17 @@ type CheckboxProps = {
 
 const Checkbox: React.FC<CheckboxProps> = ({ id, label, onChange, disabled }) => {
     return (
-        <div className={input.checkboxWrapper}>
+        <label className={input.checkboxWrapper} htmlFor={id}>
             <input
                 type="checkbox"
                 id={id}
-                className={input.checkbox}
+                className={input.visuallyHiddenCheckbox}
                 onChange={(e) => onChange(e.target.checked)}
                 disabled={disabled}
             />
-            <label htmlFor={id} className={input.checkboxLabel}>{label}</label>
-        </div>
+            <span className={disabled ? `${input.disabledCheckbox} ${input.customCheckbox}` : input.customCheckbox} aria-hidden="true" />
+            <span className={disabled ? `${input.disabledCheckboxLabel} ${input.checkboxLabel}` : input.checkboxLabel}>{label}</span>
+        </label>
     );
 }
 

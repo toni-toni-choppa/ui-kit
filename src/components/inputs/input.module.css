@@ -1,131 +1,137 @@
-/* Alone for now, but used for universal input styles in the future */
 .textInput,
 .select {
-    font-family: var(--font-family-sans);
+  font-family: var(--font-family-sans);
+}
+
+.textInput:hover,
+.select:hover {
+  border-color: var(--border-color-focus);
 }
 
 /* Text Input styles */
 .textInput {
-    appearance: none;
+  appearance: none;
 
-    padding: var(--spacing-2);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-regular);
+  padding: var(--spacing-2);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
 
-    border: 1px solid var(--gray-300);
-    border-radius: var(--border-radius-1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-1);
 }
 
 .textInput:focus {
-    outline: none;
-    border: 1px solid var(--gray-900);
+  outline: none;
+  background-color: var(--background-color-secondary);
+  border: 1px solid var(--border-color-focus);
 }
 
 .textInput:disabled {
-    background-color: var(--gray-100);
-    border-color: var(--gray-200);
-    color: var(--gray-500);
-    cursor: not-allowed;
+  background-color: var(--background-color-secondary);
+  border-color: var(--border-color);
+  color: var(--font-color-quaternary);
+  cursor: not-allowed;
+}
+
+.textInput:disabled::placeholder {
+  color: var(--font-color-quaternary);
 }
 
 /* Select styles */
 .select {
-    padding: var(--spacing-2);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-regular);
+  padding: var(--spacing-2);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
 
-    border: 1px solid var(--gray-300);
-    border-radius: var(--border-radius-1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-1);
 }
 
 .select:focus {
-    outline: none;
-    border: 1px solid var(--gray-900);
+  outline: none;
+  background-color: var(--background-color-secondary);
+  border: 1px solid var(--border-color-focus);
 }
 
 .select:disabled {
-    background-color: var(--gray-100);
-    border-color: var(--gray-200);
-    color: var(--gray-500);
-    cursor: not-allowed;
+  background-color: var(--background-color-secondary);
+  border-color: var(--border-color);
+  color: var(--font-color-quaternary);
+  cursor: not-allowed;
 }
 
-/* Text Area styles */
-.textArea {
-    appearance: none;
-
-    padding: var(--spacing-2);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-regular);
-
-    border: 1px solid var(--gray-300);
-    border-radius: var(--border-radius-1);
+/* Minimal styles for custom checkbox and radio */
+.visuallyHiddenCheckbox,
+.visuallyHiddenRadio {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 }
 
-.textArea:focus {
-    outline: none;
-    border: 1px solid var(--gray-900);
-}
-
-.textArea:disabled {
-    background-color: var(--gray-100);
-    border-color: var(--gray-200);
-    color: var(--gray-500);
-    cursor: not-allowed;
-}
-
-/* Checkbox styles */
-.checkboxWrapper {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-}
-
-.checkbox {
-    width: 16px;
-    height: 16px;
-    border: 1px solid var(--gray-300);
-    border-radius: 4px;
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-}
-
-.checkbox:checked {
-    background-color: var(--gray-900);
-    border-color: var(--gray-900);
-}
-
-.checkbox:disabled {
-    background-color: var(--gray-100);
-    border-color: var(--gray-200);
-    cursor: not-allowed;
-}
-
-/* Radio Button styles */
+.checkboxWrapper,
 .radioWrapper {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
 }
 
-.radio {
-    width: 16px;
-    height: 16px;
-    border: 1px solid var(--gray-300);
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-    cursor: pointer;
+
+.customCheckbox,
+.customRadio {
+  width: 1.2em;
+  height: 1.2em;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-1);
+  background: var(--background-color-secondary);
 }
 
-.radio:checked {
-    background-color: var(--gray-900);
-    border-color: var(--gray-900);
+.customCheckbox:hover,
+.customRadio:hover {
+  border-color: var(--border-color-focus);
+  background: var(--background-color-tertiary);
 }
 
-.radio:disabled {
-    background-color: var(--gray-100);
-    border-color: var(--gray-200);
-    cursor: not-allowed;
+.disabledCheckbox, .disabledCheckbox:hover,
+.disabledRadio, .disabledRadio:hover {
+  border-color: var(--border-color);
+  background: var(--background-color-quaternary);
+  cursor: not-allowed;
+}
+
+.disabledCheckboxLabel, .disabledRadioLabel {
+  color: var(--font-color-quaternary);
+  cursor: not-allowed;
+}
+
+.customRadio {
+  border-radius: 50%;
+}
+
+/* Show a simple check for checked checkbox */
+.visuallyHiddenCheckbox:checked + .customCheckbox::after {
+  content: url("/check.svg");
+  position: relative;
+  top: -0.04em;
+  left: 0.15em;
+  color: var(--text-color-primary);
+}
+
+/* Show a filled dot for checked radio */
+.visuallyHiddenRadio:checked + .customRadio::after {
+  content: url("/circle.svg");
+  position: relative;
+  top: -0.04em;
+  left: 0.15em;
+  color: var(--text-color-primary);
+}
+
+.checkboxLabel,
+.radioLabel {
+  user-select: none;
+  font-size: var(--font-size-small);
 }

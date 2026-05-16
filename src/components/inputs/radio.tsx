@@ -10,17 +10,18 @@ type RadioProps = {
 
 const Radio: React.FC<RadioProps> = ({ id, label, name, onChange, disabled }) => {
     return (
-        <div className={input.radioWrapper}>
+        <label className={input.radioWrapper} htmlFor={id}>
             <input
                 type="radio"
                 id={id}
                 name={name}
-                className={input.radio}
+                className={input.visuallyHiddenRadio}
                 onChange={(e) => onChange(e.target.checked)}
                 disabled={disabled}
             />
-            <label htmlFor={id} className={input.radioLabel}>{label}</label>
-        </div>
+            <span className={disabled ? `${input.disabledRadio} ${input.customRadio}` : input.customRadio} aria-hidden="true" />
+            <span className={disabled ? `${input.disabledRadioLabel} ${input.radioLabel}` : input.radioLabel}>{label}</span>
+        </label>
     );
 }
 

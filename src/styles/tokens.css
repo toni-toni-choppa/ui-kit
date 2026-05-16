@@ -65,11 +65,23 @@
     --border-radius-1: 4px;
     --border-radius-2: 8px;
 
-
     /* Button Colors */
     --button-color-primary: var(--gray-900);
     --button-color-secondary: var(--gray-300);
     --button-color-transparent: transparent;
+
+    /* Color Tokens */
+    --border-color: var(--gray-300);
+    --border-color-focus: var(--gray-500);
+
+    --surface-color-primary: var(--white);
+    --surface-color-secondary: var(--gray-50);
+    --surface-color-hover: var(--gray-100);
+
+    --background-color-primary: var(--white);
+    --background-color-secondary: var(--gray-100);
+    --background-color-tertiary: var(--gray-200);
+    --background-color-quaternary: var(--gray-300);
 }
 
 @supports (font-variation-settings: normal) {
