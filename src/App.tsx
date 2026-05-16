@@ -39,6 +39,14 @@ function App() {
         <Article.Divider />
 
         <Article.Section>
+          <h3>Range</h3>
+          <Input.Range name="range-input" id="range-input" onChange={(value) => console.log(value)} min={0} max={100} step={1} />
+          <Input.Range name="range-input-disabled" id="range-input-disabled" disabled onChange={(value) => console.log(value)} min={0} max={100} step={1} />
+        </Article.Section>
+
+        <Article.Divider />
+
+        <Article.Section>
           <h3>Text Area</h3>
           <Input.TextArea id="text-area" placeholder="Enter some text" onChange={(value) => console.log(value)} />
           <Input.TextArea id="text-area-disabled" placeholder="Disabled input" disabled onChange={(value) => console.log(value)} />

@@ -3,13 +3,15 @@ import Select from "./select";
 import TextArea from "./textarea";
 import Checkbox from "./checkbox";
 import Radio from "./radio";
+import Range from "./range";
 
 const Input = {
     Text,
     Select,
     TextArea,
     Checkbox,
-    Radio
+    Radio,
+    Range
 }
 
 export default Input;
