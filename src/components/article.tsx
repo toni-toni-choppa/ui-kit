@@ -30,11 +30,10 @@ function Divider() {
     )
 }
 
-const Article = {
-    Article: ArticleWrapper,
+const Article = Object.assign(ArticleWrapper, {
     Header,
     Section,
     Divider
-}
+})
 
 export default Article;
