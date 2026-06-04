@@ -6,12 +6,12 @@ import Radio from "./radio";
 import Range from "./range";
 
 const Input = {
-    Text,
-    Select,
-    TextArea,
-    Checkbox,
-    Radio,
-    Range
-}
+  Text,
+  Select,
+  TextArea,
+  Checkbox,
+  Radio,
+  Range,
+};
 
 export default Input;

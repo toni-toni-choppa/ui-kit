@@ -21,7 +21,9 @@
 
   background-color: var(--background-color-tertiary);
 
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .textInput:focus {
@@ -51,7 +53,9 @@
 
   background-color: var(--background-color-tertiary);
 
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 
   display: flex;
   align-items: center;
@@ -122,7 +126,6 @@
   cursor: pointer;
 }
 
-
 .customCheckbox,
 .customRadio {
   width: 1.2em;
@@ -138,14 +141,17 @@
   background: var(--background-color-tertiary);
 }
 
-.disabledCheckbox, .disabledCheckbox:hover,
-.disabledRadio, .disabledRadio:hover {
+.disabledCheckbox,
+.disabledCheckbox:hover,
+.disabledRadio,
+.disabledRadio:hover {
   border-color: var(--border-color);
   background: var(--background-color-quaternary);
   cursor: not-allowed;
 }
 
-.disabledCheckboxLabel, .disabledRadioLabel {
+.disabledCheckboxLabel,
+.disabledRadioLabel {
   color: var(--font-color-quaternary);
   cursor: not-allowed;
 }

@@ -1,9 +1,9 @@
-import Article from "./components/article"
-import Layout from "./layout/layout"
-import Button from "./components/buttons"
-import Input from "./components/inputs/inputs"
+import Article from "./components/article";
+import Layout from "./layout/layout";
+import Button from "./components/buttons";
+import Input from "./components/inputs/inputs";
 
-import { useState } from "react"
+import { useState } from "react";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -12,13 +12,16 @@ function App() {
     <>
       <Layout>
         <Layout.Sidebar isOpen={isSidebarOpen}>
-          <Button icon={<img src="/sidebar.svg" alt="Sidebar" height="16"/>} onClick={
-              () => {
-                setIsSidebarOpen(prev => !prev);
-                console.log(isSidebarOpen);
-              }
-            } size="small" variant="transparent"/>
-            <Input.Text id="search" placeholder="Search"/>
+          <Button
+            icon={<img src="/sidebar.svg" alt="Sidebar" height="16" />}
+            onClick={() => {
+              setIsSidebarOpen((prev) => !prev);
+              console.log(isSidebarOpen);
+            }}
+            size="small"
+            variant="transparent"
+          />
+          <Input.Text id="search" placeholder="Search" />
           <Layout.SidebarList>
             <Layout.SidebarListItem>Item 1</Layout.SidebarListItem>
             <Layout.SidebarListItem>Item 2</Layout.SidebarListItem>
@@ -27,22 +30,26 @@ function App() {
         </Layout.Sidebar>
         <Layout.Content>
           <Layout.Header>
-            <Button icon={<img src="/sidebar.svg" alt="Sidebar" height="16"/>} onClick={
-              () => {
-                setIsSidebarOpen(prev => !prev);
+            <Button
+              icon={<img src="/sidebar.svg" alt="Sidebar" height="16" />}
+              onClick={() => {
+                setIsSidebarOpen((prev) => !prev);
                 console.log(isSidebarOpen);
-              }
-            } size="small" variant="transparent"/>
-              <Layout.HeaderTitle>
-                Header Title
-              </Layout.HeaderTitle>
+              }}
+              size="small"
+              variant="transparent"
+            />
+            <Layout.HeaderTitle>Header Title</Layout.HeaderTitle>
           </Layout.Header>
           <Article>
             <Article.Header>
-              <h2>Why Pineapple on Pizza Secretly Works (Even if Italians Hate It)</h2>
+              <h2>
+                Why Pineapple on Pizza Secretly Works (Even if Italians Hate It)
+              </h2>
 
               <Article.Metadata>
-                By Marco “Definitely Not Angry” Bellini · May 12, 2026 · 6 min read
+                By Marco “Definitely Not Angry” Bellini · May 12, 2026 · 6 min
+                read
               </Article.Metadata>
             </Article.Header>
 
@@ -51,17 +58,22 @@ function App() {
             <Article.Section>
               <h3>The Pizza Debate That Refuses to Die</h3>
 
-              <h4>Somewhere in Italy, a grandmother just sighed dramatically.</h4>
+              <h4>
+                Somewhere in Italy, a grandmother just sighed dramatically.
+              </h4>
 
               <p>
-                Few foods create arguments faster than pineapple on pizza. Mention it at a
-                dinner table and suddenly everyone becomes a culinary philosopher.
+                Few foods create arguments faster than pineapple on pizza.
+                Mention it at a dinner table and suddenly everyone becomes a
+                culinary philosopher.
               </p>
 
               <p>
-                Traditionalists insist pizza should remain pure: crust, sauce, cheese,
-                maybe some basil if you're feeling adventurous. Meanwhile, pineapple fans
-                continue placing tropical fruit directly onto melted mozzarella with <strong>absolutely zero shame</strong>.
+                Traditionalists insist pizza should remain pure: crust, sauce,
+                cheese, maybe some basil if you're feeling adventurous.
+                Meanwhile, pineapple fans continue placing tropical fruit
+                directly onto melted mozzarella with{" "}
+                <strong>absolutely zero shame</strong>.
               </p>
 
               <p>
@@ -77,22 +89,27 @@ function App() {
               <h4>Humanity has been mixing flavors for centuries.</h4>
 
               <p>
-                Critics often act as though pineapple pizza broke some ancient culinary
-                law carved into stone tablets somewhere beneath Naples.
+                Critics often act as though pineapple pizza broke some ancient
+                culinary law carved into stone tablets somewhere beneath Naples.
               </p>
 
               <p>
-                But sweet-and-savory combinations exist everywhere: <strong>chicken and waffles</strong>, <strong>maple bacon</strong>, <strong>teriyaki sauce</strong>, and even <strong>candied nuts on salads</strong>.
+                But sweet-and-savory combinations exist everywhere:{" "}
+                <strong>chicken and waffles</strong>,{" "}
+                <strong>maple bacon</strong>, <strong>teriyaki sauce</strong>,
+                and even <strong>candied nuts on salads</strong>.
               </p>
 
               <p>
-                Pineapple simply joins that same flavor philosophy. The sweetness cuts
-                through salty cheese and savory meats in a surprisingly balanced way.
+                Pineapple simply joins that same flavor philosophy. The
+                sweetness cuts through salty cheese and savory meats in a
+                surprisingly balanced way.
               </p>
 
               <p>
-                The first bite feels confusing. The second bite feels intentional.
-                By the third bite, you're defending it online at 2 AM.
+                The first bite feels confusing. The second bite feels
+                intentional. By the third bite, you're defending it online at 2
+                AM.
               </p>
             </Article.Section>
 
@@ -104,19 +121,20 @@ function App() {
               <h4>Yes, there is a difference.</h4>
 
               <p>
-                A poorly made pineapple pizza tastes like warm fruit dumped onto cardboard.
-                That much is true.
+                A poorly made pineapple pizza tastes like warm fruit dumped onto
+                cardboard. That much is true.
               </p>
 
               <p>
-                But when the crust is crisp, the sauce has acidity, and the pineapple is
-                balanced with salty toppings like ham or bacon, the result becomes
-                unexpectedly good.
+                But when the crust is crisp, the sauce has acidity, and the
+                pineapple is balanced with salty toppings like ham or bacon, the
+                result becomes unexpectedly good.
               </p>
 
               <p>
-                The issue is not the pineapple itself. The issue is that many pizzas are
-                made with the culinary precision of a microwave instruction manual.
+                The issue is not the pineapple itself. The issue is that many
+                pizzas are made with the culinary precision of a microwave
+                instruction manual.
               </p>
             </Article.Section>
 
@@ -128,17 +146,16 @@ function App() {
               <h4>Tomatoes were once considered suspicious too.</h4>
 
               <p>
-                Ironically, Italy itself once distrusted tomatoes after they arrived from
-                the Americas. Imagine telling modern pizza lovers that tomato sauce was
-                once viewed as strange.
+                Ironically, Italy itself once distrusted tomatoes after they
+                arrived from the Americas. Imagine telling modern pizza lovers
+                that tomato sauce was once viewed as strange.
               </p>
 
-              <p>
-                Food evolves. Recipes evolve. People experiment.
-              </p>
+              <p>Food evolves. Recipes evolve. People experiment.</p>
 
               <p>
-                Today's “culinary crime” sometimes becomes tomorrow's normal menu item.
+                Today's “culinary crime” sometimes becomes tomorrow's normal
+                menu item.
               </p>
             </Article.Section>
 
@@ -147,33 +164,37 @@ function App() {
             <Article.Section>
               <h3>Final Verdict</h3>
 
-              <h4>You do not have to love it. You just have to admit it works.</h4>
+              <h4>
+                You do not have to love it. You just have to admit it works.
+              </h4>
 
               <p>
-                Pineapple on pizza may never earn universal acceptance from traditional
-                Italian chefs. Somewhere, an old man in Naples is probably still shaking
-                his head in disappointment.
+                Pineapple on pizza may never earn universal acceptance from
+                traditional Italian chefs. Somewhere, an old man in Naples is
+                probably still shaking his head in disappointment.
               </p>
 
               <p>
-                But flavor-wise? The combination succeeds more often than critics want to
-                admit.
+                But flavor-wise? The combination succeeds more often than
+                critics want to admit.
               </p>
 
               <p>
-                It is sweet, salty, acidic, cheesy, crispy, and chaotic in a way that
-                somehow comes together.
+                It is sweet, salty, acidic, cheesy, crispy, and chaotic in a way
+                that somehow comes together.
               </p>
 
               <p>
-                <strong>And that is exactly why people keep ordering it.</strong>
+                <strong>
+                  And that is exactly why people keep ordering it.
+                </strong>
               </p>
             </Article.Section>
           </Article>
         </Layout.Content>
       </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

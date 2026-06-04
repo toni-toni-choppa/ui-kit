@@ -1,4 +1,4 @@
-import input from "./input.module.css";
+import styles from "./input.module.css";
 
 type TextProps = {
   placeholder?: string;
@@ -8,11 +8,17 @@ type TextProps = {
   disabled?: boolean;
 };
 
-export default function Text({ placeholder, value, id, onChange, disabled }: TextProps) {
+export default function Text({
+  placeholder,
+  value,
+  id,
+  onChange,
+  disabled,
+}: TextProps) {
   return (
     <input
       type="text"
-      className={input.textInput}
+      className={styles.textInput}
       id={id}
       disabled={disabled}
       placeholder={placeholder}

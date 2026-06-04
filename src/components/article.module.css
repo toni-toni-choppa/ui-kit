@@ -1,55 +1,55 @@
 .article {
-    width: 100%;
-    padding: var(--spacing-4);
+  width: 100%;
+  padding: var(--spacing-4);
 }
 
 .article h2 {
-    margin-top: var(--spacing-4);
-    padding: var(--spacing-2);
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-2);
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-1);
-    padding-bottom: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding-bottom: var(--spacing-3);
 }
 
 .divider {
-    border: none;
-    border-top: 1px solid var(--gray-300);
-    margin: var(--spacing-4) 0;
+  border: none;
+  border-top: 1px solid var(--gray-300);
+  margin: var(--spacing-4) 0;
 }
 
 .metadata {
-    padding: var(--spacing-2);
+  padding: var(--spacing-2);
 }
 
 .section {
-    padding: var(--spacing-2);
+  padding: var(--spacing-2);
 }
 
 .section p {
-    margin-bottom: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
 }
 
 .section h3,
 .section h4 {
-    margin-bottom: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
 }
 
 .section h3 {
-    margin-top: var(--spacing-3);
+  margin-top: var(--spacing-3);
 }
 
 @media (min-width: 768px) {
-    .article {
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
+  .article {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-    .section p {
-        width: 75ch;
-    }
+  .section p {
+    width: 75ch;
+  }
 }
