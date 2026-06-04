@@ -16,6 +16,14 @@ function Header({ children }: { children: React.ReactNode }) {
     )
 }
 
+function Metadata({ children }: { children: React.ReactNode }) {
+    return (
+        <small className={article.metadata}>
+            {children}
+        </small>
+    )
+}
+
 function Section({ children }: { children: React.ReactNode }) {
     return (
         <section className={article.section}>
@@ -32,6 +40,7 @@ function Divider() {
 
 const Article = Object.assign(ArticleWrapper, {
     Header,
+    Metadata,
     Section,
     Divider
 })
