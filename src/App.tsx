@@ -1,74 +1,177 @@
 import Article from "./components/article"
+import Layout from "./layout/layout"
+import Button from "./components/buttons"
 import Input from "./components/inputs/inputs"
 
+import { useState } from "react"
+
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <>
-      <Article.Article>
-        <Article.Header>
-          <h2>Inputs</h2>
+      <Layout>
+        <Layout.Sidebar isOpen={isSidebarOpen}>
+          <Button icon={<img src="/sidebar.svg" alt="Sidebar" height="16"/>} onClick={
+              () => {
+                setIsSidebarOpen(prev => !prev);
+                console.log(isSidebarOpen);
+              }
+            } size="small" variant="transparent"/>
+            <Input.Text id="search" placeholder="Search"/>
+          <Layout.SidebarList>
+            <Layout.SidebarListItem>Item 1</Layout.SidebarListItem>
+            <Layout.SidebarListItem>Item 2</Layout.SidebarListItem>
+            <Layout.SidebarListItem>Item 3</Layout.SidebarListItem>
+          </Layout.SidebarList>
+        </Layout.Sidebar>
+        <Layout.Content>
+          <Layout.Header>
+            <Button icon={<img src="/sidebar.svg" alt="Sidebar" height="16"/>} onClick={
+              () => {
+                setIsSidebarOpen(prev => !prev);
+                console.log(isSidebarOpen);
+              }
+            } size="small" variant="transparent"/>
+              <Layout.HeaderTitle>
+                Header Title
+              </Layout.HeaderTitle>
+          </Layout.Header>
+          <Article>
+            <Article.Header>
+              <h2>Why Pineapple on Pizza Secretly Works (Even if Italians Hate It)</h2>
 
-          <p className="metadata">
-            <span>Stuff to input and interact with</span>
-          </p>
-        </Article.Header>
+              <Article.Metadata>
+                By Marco “Definitely Not Angry” Bellini · May 12, 2026 · 6 min read
+              </Article.Metadata>
+            </Article.Header>
 
-        <Article.Divider />
+            <Article.Divider />
 
-        <Article.Section>
-          <h3>Text</h3>
-          <Input.Text id="text-input" placeholder="Enter some text" onChange={(value) => console.log(value)} />
-          <Input.Text id="text-input-disabled" placeholder="Disabled input" disabled onChange={(value) => console.log(value)} />
-        </Article.Section>
+            <Article.Section>
+              <h3>The Pizza Debate That Refuses to Die</h3>
 
-        <Article.Divider />
+              <h4>Somewhere in Italy, a grandmother just sighed dramatically.</h4>
 
-        <Article.Section>
-          <h3>Select</h3>
-          <Input.Select onChange={(value) => console.log(value)}>
-            <Input.Select.Option value="option1" label="Option 1" />
-            <Input.Select.Option value="option2" label="Option 2" />
-            <Input.Select.Option value="option3" label="Option 3" />
-          </Input.Select>
+              <p>
+                Few foods create arguments faster than pineapple on pizza. Mention it at a
+                dinner table and suddenly everyone becomes a culinary philosopher.
+              </p>
 
-          <Input.Select disabled onChange={(value) => console.log(value)}>
-            <Input.Select.Option value="option1" label="Disabled" />
-          </Input.Select>
-        </Article.Section>
+              <p>
+                Traditionalists insist pizza should remain pure: crust, sauce, cheese,
+                maybe some basil if you're feeling adventurous. Meanwhile, pineapple fans
+                continue placing tropical fruit directly onto melted mozzarella with <strong>absolutely zero shame</strong>.
+              </p>
 
-        <Article.Divider />
+              <p>
+                And honestly? <i>It kind of works.</i>
+              </p>
+            </Article.Section>
 
-        <Article.Section>
-          <h3>Range</h3>
-          <Input.Range name="range-input" id="range-input" onChange={(value) => console.log(value)} min={0} max={100} step={1} />
-          <Input.Range name="range-input-disabled" id="range-input-disabled" disabled onChange={(value) => console.log(value)} min={0} max={100} step={1} />
-        </Article.Section>
+            <Article.Divider />
 
-        <Article.Divider />
+            <Article.Section>
+              <h3>Sweet and Savory Is Already a Thing</h3>
 
-        <Article.Section>
-          <h3>Text Area</h3>
-          <Input.TextArea id="text-area" placeholder="Enter some text" onChange={(value) => console.log(value)} />
-          <Input.TextArea id="text-area-disabled" placeholder="Disabled input" disabled onChange={(value) => console.log(value)} />
-        </Article.Section>
+              <h4>Humanity has been mixing flavors for centuries.</h4>
 
-        <Article.Divider />
-        
-        <Article.Section>
-          <h3>Checkbox</h3>
-          <Input.Checkbox id="checkbox" label="Check me" onChange={(checked) => console.log(checked)} />
-          <Input.Checkbox id="checkbox-disabled" label="Disabled checkbox" disabled onChange={(checked) => console.log(checked)} />
-        </Article.Section>
+              <p>
+                Critics often act as though pineapple pizza broke some ancient culinary
+                law carved into stone tablets somewhere beneath Naples.
+              </p>
 
-        <Article.Divider />
+              <p>
+                But sweet-and-savory combinations exist everywhere: <strong>chicken and waffles</strong>, <strong>maple bacon</strong>, <strong>teriyaki sauce</strong>, and even <strong>candied nuts on salads</strong>.
+              </p>
 
-        <Article.Section>
-          <h3>Radio</h3>
-          <Input.Radio id="radio1" name="radio-group" label="Option 1" onChange={(checked) => console.log(checked)} />
-          <Input.Radio id="radio2" name="radio-group" label="Option 2" onChange={(checked) => console.log(checked)} />
-          <Input.Radio id="radio-disabled" name="radio-group-disabled" label="Disabled radio" disabled onChange={(checked) => console.log(checked)} />
-        </Article.Section>
-      </Article.Article>
+              <p>
+                Pineapple simply joins that same flavor philosophy. The sweetness cuts
+                through salty cheese and savory meats in a surprisingly balanced way.
+              </p>
+
+              <p>
+                The first bite feels confusing. The second bite feels intentional.
+                By the third bite, you're defending it online at 2 AM.
+              </p>
+            </Article.Section>
+
+            <Article.Divider />
+
+            <Article.Section>
+              <h3>The Real Problem Is Usually Bad Pineapple Pizza</h3>
+
+              <h4>Yes, there is a difference.</h4>
+
+              <p>
+                A poorly made pineapple pizza tastes like warm fruit dumped onto cardboard.
+                That much is true.
+              </p>
+
+              <p>
+                But when the crust is crisp, the sauce has acidity, and the pineapple is
+                balanced with salty toppings like ham or bacon, the result becomes
+                unexpectedly good.
+              </p>
+
+              <p>
+                The issue is not the pineapple itself. The issue is that many pizzas are
+                made with the culinary precision of a microwave instruction manual.
+              </p>
+            </Article.Section>
+
+            <Article.Divider />
+
+            <Article.Section>
+              <h3>Even Food Rules Change Over Time</h3>
+
+              <h4>Tomatoes were once considered suspicious too.</h4>
+
+              <p>
+                Ironically, Italy itself once distrusted tomatoes after they arrived from
+                the Americas. Imagine telling modern pizza lovers that tomato sauce was
+                once viewed as strange.
+              </p>
+
+              <p>
+                Food evolves. Recipes evolve. People experiment.
+              </p>
+
+              <p>
+                Today's “culinary crime” sometimes becomes tomorrow's normal menu item.
+              </p>
+            </Article.Section>
+
+            <Article.Divider />
+
+            <Article.Section>
+              <h3>Final Verdict</h3>
+
+              <h4>You do not have to love it. You just have to admit it works.</h4>
+
+              <p>
+                Pineapple on pizza may never earn universal acceptance from traditional
+                Italian chefs. Somewhere, an old man in Naples is probably still shaking
+                his head in disappointment.
+              </p>
+
+              <p>
+                But flavor-wise? The combination succeeds more often than critics want to
+                admit.
+              </p>
+
+              <p>
+                It is sweet, salty, acidic, cheesy, crispy, and chaotic in a way that
+                somehow comes together.
+              </p>
+
+              <p>
+                <strong>And that is exactly why people keep ordering it.</strong>
+              </p>
+            </Article.Section>
+          </Article>
+        </Layout.Content>
+      </Layout>
     </>
   )
 }

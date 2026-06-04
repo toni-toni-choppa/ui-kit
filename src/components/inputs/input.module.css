@@ -5,7 +5,7 @@
 
 .textInput:hover,
 .select:hover {
-  border-color: var(--border-color-focus);
+  border-color: var(--border-color);
 }
 
 /* Text Input styles */
@@ -16,14 +16,18 @@
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-regular);
 
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-1);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-2);
+
+  background-color: var(--background-color-tertiary);
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .textInput:focus {
   outline: none;
-  background-color: var(--background-color-secondary);
-  border: 1px solid var(--border-color-focus);
+  background-color: var(--background-color-primary);
+  border: 1px solid var(--border-color);
 }
 
 .textInput:disabled {
