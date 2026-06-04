@@ -1,0 +1,1 @@
+declare module '@toni-toni-choppa/ui-kit/styles.css';

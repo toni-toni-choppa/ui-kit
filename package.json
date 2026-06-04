@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc -p tsconfig.build.json && cp src/styles.d.ts dist/styles.d.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -37,10 +37,13 @@
     "react-dom": "^19.0.0"
   },
   "exports": {
-  ".": {
-    "import": "./dist/ui-kit.es.js",
-    "require": "./dist/ui-kit.cjs.js"
-  },
-  "./styles.css": "./dist/ui-kit.css"
-}
+    ".": {
+      "import": "./dist/ui-kit.es.js",
+      "require": "./dist/ui-kit.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": {
+      "default": "./dist/ui-kit.css"
+    }
+  }
 }
