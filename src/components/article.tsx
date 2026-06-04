@@ -9,7 +9,7 @@ function Header({ children }: { children: React.ReactNode }) {
 }
 
 function Metadata({ children }: { children: React.ReactNode }) {
-  return <small className={article.metadata}>{children}</small>;
+  return <p className={article.metadata}>{children}</p>;
 }
 
 function Section({ children }: { children: React.ReactNode }) {
