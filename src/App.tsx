@@ -3,10 +3,12 @@ import Layout from "./layout/layout";
 import Button from "./components/buttons";
 import Input from "./components/inputs/inputs";
 
-import parseMarkdown from "./parse";
+import { parseMarkdown, docs } from "./parse";
 
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import CodeSnippet from "./components/codesnippet";
 
 const components = {
     h1: ({ children }: { children?: React.ReactNode }) => (
@@ -21,11 +23,29 @@ const components = {
     h4: ({ children }: { children?: React.ReactNode }) => (
         <h4>{children}</h4>
     ),
-    hr: () => <Article.Divider />
+    hr: () => <Article.Divider />,
+    code: ({ className, children }: { className?: string, children?: React.ReactNode }) => {
+          const match = /language-(\w+)/.exec(className || "");
+          const language = match?.[1] ?? "text";
+
+          return (
+            <CodeSnippet
+              language={language}
+              code={String(children).replace(/\n$/, "")}
+            />
+          );
+        },
 };
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  let location = useLocation().pathname;
+  
+  if (location === "/") {
+    location = "index";
+  } else {
+    location = location.substring(1);
+  }
 
   return (
     <>
@@ -42,9 +62,18 @@ function App() {
           />
           <Input.Text id="search" placeholder="Search" />
           <Layout.SidebarList>
-            <Layout.SidebarListItem>Item 1</Layout.SidebarListItem>
-            <Layout.SidebarListItem>Item 2</Layout.SidebarListItem>
-            <Layout.SidebarListItem>Item 3</Layout.SidebarListItem>
+            {Object.keys(docs).map((key) => {
+              const path = key.replace("../docs/", "").replace(".mdx", "");
+              const title = parseMarkdown(path).header.title;
+              return (
+                <Layout.SidebarListItem
+                  key={path}
+                  isActive={location === path}
+                >
+                  <Link to={`/${path === "index" ? "" : path}`}>{title}</Link>
+                </Layout.SidebarListItem>
+              );
+            })}
           </Layout.SidebarList>
         </Layout.Sidebar>
         <Layout.Content>
@@ -58,18 +87,18 @@ function App() {
               size="small"
               variant="transparent"
             />
-            <Layout.HeaderTitle>Header Title</Layout.HeaderTitle>
+            <Layout.HeaderTitle>{parseMarkdown(location).header.title}</Layout.HeaderTitle>
           </Layout.Header>
           <Article>
             <Article.Header>
-              <h2>{parseMarkdown("index").header.title}</h2>
-              <Article.Metadata>{parseMarkdown("index").header.description}</Article.Metadata>
+              <h2>{parseMarkdown(location).header.title}</h2>
+              <Article.Metadata>{parseMarkdown(location).header.description}</Article.Metadata>
             </Article.Header>
 
             <Article.Divider />
 
             {
-              parseMarkdown("index").sections.map((section, index) => (
+              parseMarkdown(location).sections.map((section, index) => (
                 <>
                   <Article.Section key={index}>
                     <ReactMarkdown components={components}>{section}</ReactMarkdown>

@@ -1,4 +1,4 @@
-const docs = import.meta.glob(
+export const docs = import.meta.glob(
     "../docs/**/*.mdx",
     {
         query: "?raw",
@@ -7,7 +7,7 @@ const docs = import.meta.glob(
     }
 ) as Record<string, string>;
 
-export default function parseMarkdown(path: string): { header: { title: string; description: string }; sections: string[] } {
+export function parseMarkdown(path: string): { header: { title: string; description: string }; sections: string[] } {
     const content = docs[`../docs/${path}.mdx`];
     const sections = content
     .split(/^\s*---\s*$/gm)

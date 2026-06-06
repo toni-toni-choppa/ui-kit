@@ -42,6 +42,14 @@
   color: var(--font-color-secondary);
 }
 
+.section li {
+  margin-bottom: var(--spacing-1);
+}
+
+.section h4 {
+  margin-top: var(--spacing-3);
+}
+
 @media (min-width: 768px) {
   .article {
     width: 100%;

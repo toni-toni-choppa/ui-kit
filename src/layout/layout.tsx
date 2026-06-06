@@ -36,8 +36,8 @@ function SidebarList({ children }: { children: React.ReactNode }) {
   return <ul className={layout.sidebarList}>{children}</ul>;
 }
 
-function SidebarListItem({ children }: { children: React.ReactNode }) {
-  return <li className={layout.sidebarListItem}>{children}</li>;
+function SidebarListItem({ children, isActive }: { children: React.ReactNode; isActive?: boolean }) {
+  return <li className={`${layout.sidebarListItem} ${isActive ? layout["sidebarListItem-active"] : ""}`}>{children}</li>;
 }
 
 function Content({ children }: { children: React.ReactNode }) {
