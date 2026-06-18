@@ -1,11 +1,43 @@
 ---
 title: Text
-description: Learn how to use the Text component
-dataType: React.JSX.Element
+description: Single-line text input for basic form fields
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
 ---
 
 ## Example
 
 ```tsx
-import { Text } from "@toni-toni-choppa/ui-kit";
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function TextExample() {
+	const [email, setEmail] = useState("");
+
+	return (
+		<Input.Text
+			id="email"
+			placeholder="name@example.com"
+			value={email}
+			onChange={setEmail}
+		/>
+	);
+}
 ```
+
+---
+
+## Props
+
+- `id: string` (required): `id` for the input.
+- `placeholder?: string`: placeholder text.
+- `value?: string`: current input value.
+- `onChange?: (value: string) => void`: callback with updated input value.
+- `disabled?: boolean`: disables the field.

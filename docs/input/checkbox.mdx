@@ -1,0 +1,41 @@
+---
+title: Checkbox
+description: Boolean toggle control with custom visual styling
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function CheckboxExample() {
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  return (
+    <Input.Checkbox
+      id="terms"
+      label="I accept the terms"
+      onChange={setTermsAccepted}
+    />
+  );
+}
+```
+
+---
+
+## Props
+
+- `id: string` (required): `id` for the checkbox input.
+- `label: string` (required): visible label text.
+- `onChange: (checked: boolean) => void` (required): callback with checked state.
+- `disabled?: boolean`: disables interaction.

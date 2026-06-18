@@ -1,0 +1,50 @@
+---
+title: Button
+description: Action button with variant and size options
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Button } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { Button } from "@toni-toni-choppa/ui-kit";
+
+export default function ButtonExample() {
+  return (
+    <div>
+      <Button label="Save" onClick={() => console.log("saved")} />
+      <Button
+        label="Cancel"
+        variant="secondary"
+        onClick={() => console.log("cancelled")}
+      />
+      <Button
+        icon={<span aria-hidden="true">+</span>}
+        label="Create"
+        size="small"
+        variant="transparent"
+        onClick={() => console.log("create")}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Props
+
+- `onClick: () => void` (required): click handler.
+- `label?: string`: button text.
+- `icon?: React.ReactNode`: optional icon rendered before the label.
+- `variant?: "primary" | "secondary" | "transparent"` (default: `"primary"`).
+- `size?: "small" | "medium" | "large"` (default: `"medium"`).
+- `disabled?: boolean` (default: `false`).

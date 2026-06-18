@@ -1,7 +1,6 @@
 import Article from "./components/article";
 import Layout from "./layout/layout";
 import Button from "./components/buttons";
-import Input from "./components/inputs/inputs";
 
 import { parseMarkdown, getAllPages, type Module, type Page } from "./parse";
 
@@ -24,6 +23,12 @@ const components = {
     code: ({ className, children }: { className?: string, children?: React.ReactNode }) => {
           const match = /language-(\w+)/.exec(className || "");
           const language = match?.[1] ?? "text";
+
+          const isCodeBlock = className && className.startsWith("language-");
+
+          if (!isCodeBlock) {
+            return <code>{children}</code>;
+          }
 
           return (
             <CodeSnippet
@@ -62,7 +67,6 @@ function App() {
             size="small"
             variant="transparent"
           />
-          <Input.Text id="search" placeholder="Search" />
           <Layout.SidebarList>
             {
               allPages.index && (
@@ -71,6 +75,17 @@ function App() {
                 </Layout.SidebarListItem>
               )
             }
+            <Layout.SidebarSection key="components" title="Components">
+              {
+                allPages.children && allPages.children.map((child, index : number) => {
+                  return !(child as Module).index ? (
+                    <Layout.SidebarListItem key={index} isIndex={true} isActive={pathname === (child as Page).url}>
+                      <Link to={(child as Page).url}>{(child as Page).header.title}</Link>
+                    </Layout.SidebarListItem>
+                  ) : null;
+                })
+              }
+            </Layout.SidebarSection>
             {
               allPages.children && allPages.children.map((child, index : number) => {
                 return (child as Module).index ? (

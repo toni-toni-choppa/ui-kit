@@ -1,0 +1,42 @@
+---
+title: CodeSnippet
+description: Code block renderer with copy-to-clipboard action
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { CodeSnippet } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { CodeSnippet } from "@toni-toni-choppa/ui-kit";
+
+export default function CodeSnippetExample() {
+  return (
+    <CodeSnippet
+      language="tsx"
+      code={`import { Button } from "@toni-toni-choppa/ui-kit";`}
+    />
+  );
+}
+```
+
+---
+
+## Props
+
+- `language: string` (required): label shown in the snippet header.
+- `code: string` (required): snippet content to render and copy.
+
+---
+
+## Notes
+
+- This component is currently used by the docs renderer for fenced code blocks.
+- Clicking `Copy` writes the code content to the clipboard.

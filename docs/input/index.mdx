@@ -1,7 +1,79 @@
 ---
 title: Input
-description: The input page for the UI Kit documentation
+description: Form input primitives with a shared API style
 dataType: Module
 ---
 
-wubba lubba dub dub
+## Overview
+
+`Input` is a namespace object that groups all form controls:
+
+- `Input.Text`
+- `Input.Select`
+- `Input.TextArea`
+- `Input.Checkbox`
+- `Input.Radio`
+- `Input.Range`
+
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function InputExample() {
+	const [name, setName] = useState("");
+	const [theme, setTheme] = useState("system");
+	const [bio, setBio] = useState("");
+	const [marketing, setMarketing] = useState(false);
+	const [plan, setPlan] = useState("free");
+	const [volume, setVolume] = useState(25);
+
+	return (
+		<form>
+			<Input.Text id="name" value={name} onChange={setName} placeholder="Name" />
+
+			<Input.Select id="theme" onChange={setTheme}>
+				<Input.Select.Option value="system" label="System" />
+				<Input.Select.Option value="light" label="Light" />
+				<Input.Select.Option value="dark" label="Dark" />
+			</Input.Select>
+
+			<Input.TextArea id="bio" value={bio} onChange={setBio} placeholder="Short bio" />
+
+			<Input.Checkbox
+				id="marketing"
+				label="Send me product updates"
+				onChange={setMarketing}
+			/>
+
+			<Input.Radio
+				id="plan-free"
+				name="plan"
+				label="Free plan"
+				onChange={(checked) => checked && setPlan("free")}
+			/>
+			<Input.Radio
+				id="plan-pro"
+				name="plan"
+				label="Pro plan"
+				onChange={(checked) => checked && setPlan("pro")}
+			/>
+
+			<Input.Range id="volume" name="volume" min={0} max={100} onChange={setVolume} />
+
+			<pre>{JSON.stringify({ name, theme, bio, marketing, plan, volume }, null, 2)}</pre>
+		</form>
+	);
+}
+```

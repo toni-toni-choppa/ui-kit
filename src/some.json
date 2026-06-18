@@ -1,44 +1,107 @@
 {
-    "index": {
-        "header": {
-            "title": "Getting Started",
-            "description": "Learn how to get started with using this UI Kit",
-            "dataType": "Document"
-        },
-        "content": "## Overview\n\nWhat?\n\n---\n\n## Installation\n\nThat's funny, it's not even published yet\n\n### Requirements\n\nYou might need these:\n- Well I sure hope you have a PC\n\n### Install\n\n```bash\nnpm install @toni-toni-choppa/ui-kit\n```",
-        "url": "/docs/"
-    },
     "children": [
+        {
+            "header": {
+                "title": "Article",
+                "description": "Structured content wrapper for long-form documentation pages",
+                "dataType": "React.ComponentType"
+            },
+            "content": "## Import\n\n```tsx\nimport { Article } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { Article } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function ArticleExample() {\n  return (\n    <Article>\n      <Article.Header>\n        <Article.Metadata>React.ComponentType</Article.Metadata>\n        <h2>Example Article</h2>\n        <Article.Metadata>Use this layout for rich docs content.</Article.Metadata>\n      </Article.Header>\n\n      <Article.Divider />\n\n      <Article.Section>\n        <p>Section content goes here.</p>\n      </Article.Section>\n    </Article>\n  );\n}\n```\n\n---\n\n## API\n\n### `Article`\n\n- `children: React.ReactNode` (required): content rendered inside the wrapper.\n\n### `Article.Header`\n\n- `children: React.ReactNode` (required): heading block content.\n\n### `Article.Metadata`\n\n- `children: React.ReactNode` (required): metadata text, usually type or description.\n\n### `Article.Section`\n\n- `children: React.ReactNode` (required): section content block.\n\n### `Article.Divider`\n\n- No props.",
+            "url": "/docs/article"
+        },
+        {
+            "header": {
+                "title": "Button",
+                "description": "Action button with variant and size options",
+                "dataType": "React.ComponentType"
+            },
+            "content": "## Import\n\n```tsx\nimport { Button } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { Button } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function ButtonExample() {\n  return (\n    <div>\n      <Button label=\"Save\" onClick={() => console.log(\"saved\")} />\n      <Button\n        label=\"Cancel\"\n        variant=\"secondary\"\n        onClick={() => console.log(\"cancelled\")}\n      />\n      <Button\n        icon={<span aria-hidden=\"true\">+</span>}\n        label=\"Create\"\n        size=\"small\"\n        variant=\"transparent\"\n        onClick={() => console.log(\"create\")}\n      />\n    </div>\n  );\n}\n```\n\n---\n\n## Props\n\n- `onClick: () => void` (required): click handler.\n- `label?: string`: button text.\n- `icon?: React.ReactNode`: optional icon rendered before the label.\n- `variant?: \"primary\" | \"secondary\" | \"transparent\"` (default: `\"primary\"`).\n- `size?: \"small\" | \"medium\" | \"large\"` (default: `\"medium\"`).\n- `disabled?: boolean` (default: `false`).",
+            "url": "/docs/button"
+        },
+        {
+            "header": {
+                "title": "CodeSnippet",
+                "description": "Internal code block renderer with copy-to-clipboard action",
+                "dataType": "React.ComponentType"
+            },
+            "content": "## Import\n\n```tsx\nimport CodeSnippet from \"../src/components/codesnippet\";\n```\n\n---\n\n## Example\n\n```tsx\nimport CodeSnippet from \"../src/components/codesnippet\";\n\nexport default function CodeSnippetExample() {\n  return (\n    <CodeSnippet\n      language=\"tsx\"\n      code={`import { Button } from \"@toni-toni-choppa/ui-kit\";`}\n    />\n  );\n}\n```\n\n---\n\n## Props\n\n- `language: string` (required): label shown in the snippet header.\n- `code: string` (required): snippet content to render and copy.\n\n---\n\n## Notes\n\n- This component is currently used by the docs renderer for fenced code blocks.\n- Clicking `Copy` writes the code content to the clipboard.",
+            "url": "/docs/codesnippet"
+        },
         {
             "index": {
                 "header": {
                     "title": "Input",
-                    "description": "The input page for the UI Kit documentation",
-                    "dataType": "Module"
+                    "description": "Form input primitives with a shared API style",
+                    "dataType": "React.ComponentType"
                 },
-                "content": "wubba lubba dub dub",
+                "content": "## Overview\n\n`Input` is a namespace object that groups all form controls:\n\n- `Input.Text`\n- `Input.Select`\n- `Input.TextArea`\n- `Input.Checkbox`\n- `Input.Radio`\n- `Input.Range`\n\n---\n\n## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function InputExample() {\n\tconst [name, setName] = useState(\"\");\n\tconst [theme, setTheme] = useState(\"system\");\n\tconst [bio, setBio] = useState(\"\");\n\tconst [marketing, setMarketing] = useState(false);\n\tconst [plan, setPlan] = useState(\"free\");\n\tconst [volume, setVolume] = useState(25);\n\n\treturn (\n\t\t<form>\n\t\t\t<Input.Text id=\"name\" value={name} onChange={setName} placeholder=\"Name\" />\n\n\t\t\t<Input.Select id=\"theme\" onChange={setTheme}>\n\t\t\t\t<Input.Select.Option value=\"system\" label=\"System\" />\n\t\t\t\t<Input.Select.Option value=\"light\" label=\"Light\" />\n\t\t\t\t<Input.Select.Option value=\"dark\" label=\"Dark\" />\n\t\t\t</Input.Select>\n\n\t\t\t<Input.TextArea id=\"bio\" value={bio} onChange={setBio} placeholder=\"Short bio\" />\n\n\t\t\t<Input.Checkbox\n\t\t\t\tid=\"marketing\"\n\t\t\t\tlabel=\"Send me product updates\"\n\t\t\t\tonChange={setMarketing}\n\t\t\t/>\n\n\t\t\t<Input.Radio\n\t\t\t\tid=\"plan-free\"\n\t\t\t\tname=\"plan\"\n\t\t\t\tlabel=\"Free plan\"\n\t\t\t\tonChange={(checked) => checked && setPlan(\"free\")}\n\t\t\t/>\n\t\t\t<Input.Radio\n\t\t\t\tid=\"plan-pro\"\n\t\t\t\tname=\"plan\"\n\t\t\t\tlabel=\"Pro plan\"\n\t\t\t\tonChange={(checked) => checked && setPlan(\"pro\")}\n\t\t\t/>\n\n\t\t\t<Input.Range id=\"volume\" name=\"volume\" min={0} max={100} onChange={setVolume} />\n\n\t\t\t<pre>{JSON.stringify({ name, theme, bio, marketing, plan, volume }, null, 2)}</pre>\n\t\t</form>\n\t);\n}\n```",
                 "url": "/docs/input/"
             },
             "children": [
                 {
                     "header": {
-                        "title": "Select",
-                        "description": "Learn how to use the Select component",
-                        "dataType": "React.JSX.Element"
+                        "title": "Checkbox",
+                        "description": "Boolean toggle control with custom visual styling",
+                        "dataType": "React.ComponentType"
                     },
-                    "content": "## Example\n\n```tsx\nimport { Select } from \"@toni-toni-choppa/ui-kit\";\n```",
-                    "url": "/docs/input/select/"
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function CheckboxExample() {\n  const [termsAccepted, setTermsAccepted] = useState(false);\n\n  return (\n    <Input.Checkbox\n      id=\"terms\"\n      label=\"I accept the terms\"\n      onChange={setTermsAccepted}\n    />\n  );\n}\n```\n\n---\n\n## Props\n\n- `id: string` (required): `id` for the checkbox input.\n- `label: string` (required): visible label text.\n- `onChange: (checked: boolean) => void` (required): callback with checked state.\n- `disabled?: boolean`: disables interaction.",
+                    "url": "/docs/input/checkbox"
+                },
+                {
+                    "header": {
+                        "title": "Radio",
+                        "description": "Single-choice option control used in grouped selections",
+                        "dataType": "React.ComponentType"
+                    },
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function RadioExample() {\n  const [selectedPlan, setSelectedPlan] = useState(\"free\");\n\n  return (\n    <div>\n      <Input.Radio\n        id=\"plan-free\"\n        name=\"plan\"\n        label=\"Free\"\n        onChange={(checked) => checked && setSelectedPlan(\"free\")}\n      />\n      <Input.Radio\n        id=\"plan-pro\"\n        name=\"plan\"\n        label=\"Pro\"\n        onChange={(checked) => checked && setSelectedPlan(\"pro\")}\n      />\n      <p>Selected: {selectedPlan}</p>\n    </div>\n  );\n}\n```\n\n---\n\n## Props\n\n- `id: string` (required): unique `id` for the radio input.\n- `name: string` (required): group name shared across radio options.\n- `label: string` (required): visible label text.\n- `onChange: (checked: boolean) => void` (required): callback with checked state.\n- `disabled?: boolean`: disables interaction.",
+                    "url": "/docs/input/radio"
+                },
+                {
+                    "header": {
+                        "title": "Range",
+                        "description": "Slider input for selecting numeric values within a range",
+                        "dataType": "React.ComponentType"
+                    },
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function RangeExample() {\n  const [volume, setVolume] = useState(50);\n\n  return (\n    <div>\n      <Input.Range\n        id=\"volume\"\n        name=\"volume\"\n        min={0}\n        max={100}\n        step={1}\n        onChange={setVolume}\n      />\n      <p>Volume: {volume}</p>\n    </div>\n  );\n}\n```\n\n---\n\n## Props\n\n- `id: string` (required): `id` for the input.\n- `name: string` (required): `name` attribute for form submission.\n- `onChange: (value: number) => void` (required): callback with numeric slider value.\n- `disabled?: boolean`: disables interaction.\n- `min?: number` (default: `0`): minimum value.\n- `max?: number` (default: `100`): maximum value.\n- `step?: number` (default: `1`): increment step.",
+                    "url": "/docs/input/range"
+                },
+                {
+                    "header": {
+                        "title": "Select",
+                        "description": "Single-select dropdown with composable option children",
+                        "dataType": "React.ComponentType"
+                    },
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function SelectExample() {\n\tconst [role, setRole] = useState(\"developer\");\n\n\treturn (\n\t\t<Input.Select id=\"role\" onChange={setRole}>\n\t\t\t<Input.Select.Option value=\"developer\" label=\"Developer\" />\n\t\t\t<Input.Select.Option value=\"designer\" label=\"Designer\" />\n\t\t\t<Input.Select.Option value=\"manager\" label=\"Manager\" />\n\t\t</Input.Select>\n\t);\n}\n```\n\n---\n\n## Props\n\n### `Input.Select`\n\n- `id: string` (required): `id` for the underlying `<select>` element.\n- `children: React.ReactNode` (required): one or more `Input.Select.Option` elements.\n- `onChange?: (value: string) => void`: callback with the selected option value.\n- `disabled?: boolean`: disables interaction.\n- `className?: string`: optional class for the outer wrapper.\n\n### `Input.Select.Option`\n\n- `value: string` (required): option value.\n- `label: string` (required): visible option text.\n- `className?: string`: optional class for the option.\n\n---\n\n## Notes\n\n- `Input.Select` uses a custom wrapper with a built-in dropdown icon.\n- The selected value is controlled by the browser unless you manage state externally in `onChange`.",
+                    "url": "/docs/input/select"
                 },
                 {
                     "header": {
                         "title": "Text",
-                        "description": "Learn how to use the Text component",
-                        "dataType": "React.JSX.Element"
+                        "description": "Single-line text input for basic form fields",
+                        "dataType": "React.ComponentType"
                     },
-                    "content": "## Example\n\n```tsx\nimport { Text } from \"@toni-toni-choppa/ui-kit\";\n```",
-                    "url": "/docs/input/text/"
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function TextExample() {\n\tconst [email, setEmail] = useState(\"\");\n\n\treturn (\n\t\t<Input.Text\n\t\t\tid=\"email\"\n\t\t\tplaceholder=\"name@example.com\"\n\t\t\tvalue={email}\n\t\t\tonChange={setEmail}\n\t\t/>\n\t);\n}\n```\n\n---\n\n## Props\n\n- `id: string` (required): `id` for the input.\n- `placeholder?: string`: placeholder text.\n- `value?: string`: current input value.\n- `onChange?: (value: string) => void`: callback with updated input value.\n- `disabled?: boolean`: disables the field.",
+                    "url": "/docs/input/text"
+                },
+                {
+                    "header": {
+                        "title": "TextArea",
+                        "description": "Multi-line text input for longer freeform content",
+                        "dataType": "React.ComponentType"
+                    },
+                    "content": "## Import\n\n```tsx\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n```\n\n---\n\n## Example\n\n```tsx\nimport { useState } from \"react\";\nimport { Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function TextAreaExample() {\n  const [notes, setNotes] = useState(\"\");\n\n  return (\n    <Input.TextArea\n      id=\"notes\"\n      placeholder=\"Write your notes\"\n      value={notes}\n      onChange={setNotes}\n    />\n  );\n}\n```\n\n---\n\n## Props\n\n- `id: string` (required): `id` for the textarea.\n- `placeholder?: string`: placeholder text.\n- `value?: string`: current textarea value.\n- `onChange?: (value: string) => void`: callback with updated value.\n- `disabled?: boolean`: disables the field.",
+                    "url": "/docs/input/textarea"
                 }
             ]
         }
-    ]
+    ],
+    "index": {
+        "header": {
+            "title": "Getting Started",
+            "description": "Quick start guide for installing and using this UI Kit",
+            "dataType": "Document"
+        },
+        "content": "## Overview\n\nThis UI Kit provides reusable React components for building forms and documentation-style layouts.\n\nCurrently available public components:\n\n- `Button`\n- `Article`\n- `Input` (`Text`, `Select`, `TextArea`, `Checkbox`, `Radio`, `Range`)\n\n---\n\n## Installation\n\nInstall the package with your preferred package manager.\n\n### Requirements\n\n- React 18+\n- A bundler that supports CSS modules (Vite, Next.js, CRA, etc.)\n\n### Install\n\n```bash\nnpm install @toni-toni-choppa/ui-kit\n```\n\n---\n\n## Basic Usage\n\n```tsx\nimport { Button, Input } from \"@toni-toni-choppa/ui-kit\";\n\nexport default function Example() {\n\treturn (\n\t\t<div>\n\t\t\t<Input.Text id=\"name\" placeholder=\"Your name\" />\n\t\t\t<Button label=\"Submit\" onClick={() => alert(\"submitted\")} />\n\t\t</div>\n\t);\n}\n```\n\n---\n\n## Component Docs\n\n- Start with the `Input` module for all form controls.\n- Use `Button` for primary and secondary actions.\n- Use `Article` to structure long-form content sections.",
+        "url": "/docs/"
+    }
 }

@@ -1,0 +1,50 @@
+---
+title: Range
+description: Slider input for selecting numeric values within a range
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function RangeExample() {
+  const [volume, setVolume] = useState(50);
+
+  return (
+    <div>
+      <Input.Range
+        id="volume"
+        name="volume"
+        min={0}
+        max={100}
+        step={1}
+        onChange={setVolume}
+      />
+      <p>Volume: {volume}</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Props
+
+- `id: string` (required): `id` for the input.
+- `name: string` (required): `name` attribute for form submission.
+- `onChange: (value: number) => void` (required): callback with numeric slider value.
+- `disabled?: boolean`: disables interaction.
+- `min?: number` (default: `0`): minimum value.
+- `max?: number` (default: `100`): maximum value.
+- `step?: number` (default: `1`): increment step.

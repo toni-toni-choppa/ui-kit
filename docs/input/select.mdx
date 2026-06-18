@@ -1,11 +1,57 @@
 ---
 title: Select
-description: Learn how to use the Select component
-dataType: React.JSX.Element
+description: Single-select dropdown with composable option children
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
 ---
 
 ## Example
 
 ```tsx
-import { Select } from "@toni-toni-choppa/ui-kit";
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function SelectExample() {
+	const [role, setRole] = useState("developer");
+
+	return (
+		<Input.Select id="role" onChange={setRole}>
+			<Input.Select.Option value="developer" label="Developer" />
+			<Input.Select.Option value="designer" label="Designer" />
+			<Input.Select.Option value="manager" label="Manager" />
+		</Input.Select>
+	);
+}
 ```
+
+---
+
+## Props
+
+### `Input.Select`
+
+- `id: string` (required): `id` for the underlying `<select>` element.
+- `children: React.ReactNode` (required): one or more `Input.Select.Option` elements.
+- `onChange?: (value: string) => void`: callback with the selected option value.
+- `disabled?: boolean`: disables interaction.
+- `className?: string`: optional class for the outer wrapper.
+
+### `Input.Select.Option`
+
+- `value: string` (required): option value.
+- `label: string` (required): visible option text.
+- `className?: string`: optional class for the option.
+
+---
+
+## Notes
+
+- `Input.Select` uses a custom wrapper with a built-in dropdown icon.
+- The selected value is controlled by the browser unless you manage state externally in `onChange`.

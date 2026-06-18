@@ -1,26 +1,57 @@
 ---
 title: Getting Started
-description: Learn how to get started with using this UI Kit
+description: Quick start guide for installing and using this UI Kit
 dataType: Document
 ---
 
 ## Overview
 
-What?
+This UI Kit provides reusable React components for building forms and documentation-style layouts.
+
+Currently available public components:
+
+- `Button`
+- `Article`
+- `Input` (`Text`, `Select`, `TextArea`, `Checkbox`, `Radio`, `Range`)
 
 ---
 
 ## Installation
 
-That's funny, it's not even published yet
+Install the package with your preferred package manager.
 
 ### Requirements
 
-You might need these:
-- Well I sure hope you have a PC
+- React 18+
+- A bundler that supports CSS modules (Vite, Next.js, CRA, etc.)
 
 ### Install
 
 ```bash
 npm install @toni-toni-choppa/ui-kit
 ```
+
+---
+
+## Basic Usage
+
+```tsx
+import { Button, Input } from "@toni-toni-choppa/ui-kit";
+
+export default function Example() {
+  return (
+    <div>
+      <Input.Text id="name" placeholder="Your name" />
+      <Button label="Submit" onClick={() => alert("submitted")} />
+    </div>
+  );
+}
+```
+
+---
+
+## Component Docs
+
+- Start with the `Input` module for all form controls.
+- Use `Button` for primary and secondary actions.
+- Use `Article` to structure long-form content sections.

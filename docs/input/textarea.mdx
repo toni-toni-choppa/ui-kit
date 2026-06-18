@@ -1,0 +1,43 @@
+---
+title: TextArea
+description: Multi-line text input for longer freeform content
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function TextAreaExample() {
+  const [notes, setNotes] = useState("");
+
+  return (
+    <Input.TextArea
+      id="notes"
+      placeholder="Write your notes"
+      value={notes}
+      onChange={setNotes}
+    />
+  );
+}
+```
+
+---
+
+## Props
+
+- `id: string` (required): `id` for the textarea.
+- `placeholder?: string`: placeholder text.
+- `value?: string`: current textarea value.
+- `onChange?: (value: string) => void`: callback with updated value.
+- `disabled?: boolean`: disables the field.

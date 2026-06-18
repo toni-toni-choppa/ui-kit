@@ -1,0 +1,61 @@
+---
+title: Article
+description: Structured content wrapper for long-form documentation pages
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Article } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { Article } from "@toni-toni-choppa/ui-kit";
+
+export default function ArticleExample() {
+  return (
+    <Article>
+      <Article.Header>
+        <Article.Metadata>React.ComponentType</Article.Metadata>
+        <h2>Example Article</h2>
+        <Article.Metadata>Use this layout for rich docs content.</Article.Metadata>
+      </Article.Header>
+
+      <Article.Divider />
+
+      <Article.Section>
+        <p>Section content goes here.</p>
+      </Article.Section>
+    </Article>
+  );
+}
+```
+
+---
+
+## API
+
+### `Article`
+
+- `children: React.ReactNode` (required): content rendered inside the wrapper.
+
+### `Article.Header`
+
+- `children: React.ReactNode` (required): heading block content.
+
+### `Article.Metadata`
+
+- `children: React.ReactNode` (required): metadata text, usually type or description.
+
+### `Article.Section`
+
+- `children: React.ReactNode` (required): section content block.
+
+### `Article.Divider`
+
+- No props.

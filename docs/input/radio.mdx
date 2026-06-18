@@ -1,0 +1,52 @@
+---
+title: Radio
+description: Single-choice option control used in grouped selections
+dataType: React.ComponentType
+---
+
+## Import
+
+```tsx
+import { Input } from "@toni-toni-choppa/ui-kit";
+```
+
+---
+
+## Example
+
+```tsx
+import { useState } from "react";
+import { Input } from "@toni-toni-choppa/ui-kit";
+
+export default function RadioExample() {
+  const [selectedPlan, setSelectedPlan] = useState("free");
+
+  return (
+    <div>
+      <Input.Radio
+        id="plan-free"
+        name="plan"
+        label="Free"
+        onChange={(checked) => checked && setSelectedPlan("free")}
+      />
+      <Input.Radio
+        id="plan-pro"
+        name="plan"
+        label="Pro"
+        onChange={(checked) => checked && setSelectedPlan("pro")}
+      />
+      <p>Selected: {selectedPlan}</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Props
+
+- `id: string` (required): unique `id` for the radio input.
+- `name: string` (required): group name shared across radio options.
+- `label: string` (required): visible label text.
+- `onChange: (checked: boolean) => void` (required): callback with checked state.
+- `disabled?: boolean`: disables interaction.
