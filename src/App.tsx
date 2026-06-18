@@ -3,7 +3,7 @@ import Layout from "./layout/layout";
 import Button from "./components/buttons";
 import Input from "./components/inputs/inputs";
 
-import { parseMarkdown, docs } from "./parse";
+import { parseMarkdown, getAllPages, type Module, type Page } from "./parse";
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -12,15 +12,12 @@ import CodeSnippet from "./components/codesnippet";
 
 const components = {
     h1: ({ children }: { children?: React.ReactNode }) => (
-        <h1>{children}</h1>
-    ),
-    h2: ({ children }: { children?: React.ReactNode }) => (
         <h2>{children}</h2>
     ),
-    h3: ({ children }: { children?: React.ReactNode }) => (
+    h2: ({ children }: { children?: React.ReactNode }) => (
         <h3>{children}</h3>
     ),
-    h4: ({ children }: { children?: React.ReactNode }) => (
+    h3: ({ children }: { children?: React.ReactNode }) => (
         <h4>{children}</h4>
     ),
     hr: () => <Article.Divider />,
@@ -40,12 +37,17 @@ const components = {
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   let location = useLocation().pathname;
+  const pathname = useLocation().pathname;
   
   if (location === "/") {
-    location = "index";
+    location = "/docs/index";
   } else {
     location = location.substring(1);
   }
+
+  console.log(location);
+
+  const allPages = getAllPages();
 
   return (
     <>
@@ -62,18 +64,29 @@ function App() {
           />
           <Input.Text id="search" placeholder="Search" />
           <Layout.SidebarList>
-            {Object.keys(docs).map((key) => {
-              const path = key.replace("../docs/", "").replace(".mdx", "");
-              const title = parseMarkdown(path).header.title;
-              return (
-                <Layout.SidebarListItem
-                  key={path}
-                  isActive={location === path}
-                >
-                  <Link to={`/${path === "index" ? "" : path}`}>{title}</Link>
+            {
+              allPages.index && (
+                <Layout.SidebarListItem key="index" isIndex={true} isActive={pathname === allPages.index.url}>
+                  <Link to={allPages.index.url}>{allPages.index.header.title}</Link>
                 </Layout.SidebarListItem>
-              );
-            })}
+              )
+            }
+            {
+              allPages.children && allPages.children.map((child, index : number) => {
+                return (child as Module).index ? (
+                  <Layout.SidebarSection key={index} title={(child as Module).index.header.title}>
+                    <Layout.SidebarListItem isIndex={true} key={`${index}-index`} isActive={pathname === (child as Module).index.url}>
+                      <Link to={(child as Module).index.url}>{(child as Module).index.header.title}</Link>
+                    </Layout.SidebarListItem>
+                    {(child as Module).children && (child as Module).children.map((page, pageIndex : number) => (
+                      <Layout.SidebarListItem key={`${index}-${pageIndex}`} isActive={pathname === (page as Page).url}>
+                        <Link to={(page as Page).url}>{(page as Page).header.title}</Link>
+                      </Layout.SidebarListItem>
+                    ))}
+                  </Layout.SidebarSection>
+                ) : null;
+              })
+            }
           </Layout.SidebarList>
         </Layout.Sidebar>
         <Layout.Content>
@@ -91,6 +104,7 @@ function App() {
           </Layout.Header>
           <Article>
             <Article.Header>
+              <Article.Metadata>{parseMarkdown(location).header.dataType}</Article.Metadata>
               <h2>{parseMarkdown(location).header.title}</h2>
               <Article.Metadata>{parseMarkdown(location).header.description}</Article.Metadata>
             </Article.Header>

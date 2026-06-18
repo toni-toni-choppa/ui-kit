@@ -36,8 +36,16 @@ function SidebarList({ children }: { children: React.ReactNode }) {
   return <ul className={layout.sidebarList}>{children}</ul>;
 }
 
-function SidebarListItem({ children, isActive }: { children: React.ReactNode; isActive?: boolean }) {
-  return <li className={`${layout.sidebarListItem} ${isActive ? layout["sidebarListItem-active"] : ""}`}>{children}</li>;
+function SidebarSection({ children }: { title: string; children: React.ReactNode }) {
+  return (
+    <li className={layout.sidebarSection}>
+      <ul className={layout.sidebarSectionList}>{children}</ul>
+    </li>
+  );
+}
+
+function SidebarListItem({ isIndex, children, isActive }: { isIndex?: boolean; children: React.ReactNode; isActive?: boolean }) {
+  return <li className={`${layout.sidebarListItem} ${isActive ? layout["sidebarListItem-active"] : ""} ${isIndex ? layout["sidebarListItem-index"] : ""}`}>{children}</li>;
 }
 
 function Content({ children }: { children: React.ReactNode }) {
@@ -50,6 +58,7 @@ const Layout = Object.assign(Container, {
   Sidebar,
   SidebarList,
   SidebarListItem,
+  SidebarSection,
   Content,
 });
 

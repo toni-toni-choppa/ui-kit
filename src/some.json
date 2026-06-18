@@ -1,0 +1,44 @@
+{
+    "index": {
+        "header": {
+            "title": "Getting Started",
+            "description": "Learn how to get started with using this UI Kit",
+            "dataType": "Document"
+        },
+        "content": "## Overview\n\nWhat?\n\n---\n\n## Installation\n\nThat's funny, it's not even published yet\n\n### Requirements\n\nYou might need these:\n- Well I sure hope you have a PC\n\n### Install\n\n```bash\nnpm install @toni-toni-choppa/ui-kit\n```",
+        "url": "/docs/"
+    },
+    "children": [
+        {
+            "index": {
+                "header": {
+                    "title": "Input",
+                    "description": "The input page for the UI Kit documentation",
+                    "dataType": "Module"
+                },
+                "content": "wubba lubba dub dub",
+                "url": "/docs/input/"
+            },
+            "children": [
+                {
+                    "header": {
+                        "title": "Select",
+                        "description": "Learn how to use the Select component",
+                        "dataType": "React.JSX.Element"
+                    },
+                    "content": "## Example\n\n```tsx\nimport { Select } from \"@toni-toni-choppa/ui-kit\";\n```",
+                    "url": "/docs/input/select/"
+                },
+                {
+                    "header": {
+                        "title": "Text",
+                        "description": "Learn how to use the Text component",
+                        "dataType": "React.JSX.Element"
+                    },
+                    "content": "## Example\n\n```tsx\nimport { Text } from \"@toni-toni-choppa/ui-kit\";\n```",
+                    "url": "/docs/input/text/"
+                }
+            ]
+        }
+    ]
+}
