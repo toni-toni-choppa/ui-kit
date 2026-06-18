@@ -1,8 +1,11 @@
 {
   "name": "@toni-toni-choppa/ui-kit",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -p tsconfig.build.json && cp src/styles.d.ts dist/styles.d.ts",
